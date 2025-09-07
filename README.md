@@ -1,164 +1,180 @@
-# ABCEMS Solutions
+# ABCEMS Solutions Platform
 
-Veteran-owned EMT and Paramedic prep courses. Pass the NREMT with Confidence. Train Smarter, Not Harder.
+**Veteran-owned, founded by a paramedic. DFW-based.**  
+*"Pass the NREMT with Confidence. Train Smarter, Not Harder."*
 
-## Features
+## 🚀 Current Status
 
-- **Public Site**: Real ABCEMS copy with Stripe payment integration
-- **Payment Processing**: Stripe checkout with webhook handling
-- **User Management**: NextAuth with email/Google authentication
-- **Admin Dashboard**: File uploads, roster management, and analytics
-- **Instructor Dashboard**: Attendance tracking and certificate generation
-- **Student Dashboard**: Course access and homework downloads
-- **Certificate System**: Auto-generated PDF certificates with pdf-lib
-- **Email System**: Transactional emails with Resend
-- **File Storage**: S3/R2 integration for homework and documents
+✅ **MVP Complete**: Production-ready platform with real content  
+✅ **GitHub Repository**: [thekpsgroup/abcems-funnel](https://github.com/thekpsgroup/abcems-funnel)  
+✅ **Core Features**: Payment processing, file uploads, certificate generation, audit packs  
 
-## Tech Stack
+## 📋 Next Steps Checklist
 
-- **Frontend**: Next.js 15 (App Router), TypeScript, TailwindCSS
-- **Backend**: Next.js API routes, Prisma ORM
-- **Database**: PostgreSQL
-- **Authentication**: NextAuth.js
-- **Payments**: Stripe
-- **Email**: Resend
-- **Storage**: Vercel Blob (Free alternative to AWS S3)
-- **PDF Generation**: pdf-lib
+### 🔧 **Immediate Setup (Priority 1)**
 
-## Quick Start
+- [ ] **Environment Variables**: Set up production `.env` with real values
+  - [ ] Neon Postgres database URL
+  - [ ] Stripe API keys (test → production)
+  - [ ] Resend API key
+  - [ ] Vercel Blob token
+  - [ ] NextAuth secret
 
-1. **Clone and Install**
-   ```bash
-   git clone <repository-url>
-   cd abcems
-   pnpm install
-   ```
+- [ ] **Database Setup**
+  - [ ] Run migrations: `pnpm db:migrate`
+  - [ ] Seed database: `pnpm db:seed`
+  - [ ] Verify data in Neon dashboard
 
-2. **Environment Setup**
-   ```bash
-   cp env.example .env
-   ```
-   
-   Fill in your environment variables:
-   - Database URL (PostgreSQL)
-   - NextAuth secret and OAuth credentials
-   - Stripe keys and webhook secret
-   - Resend API key
-   - AWS S3 credentials
+- [ ] **Stripe Configuration**
+  - [ ] Create production Stripe account
+  - [ ] Set up webhook endpoints
+  - [ ] Configure 25% group discount coupon
+  - [ ] Test payment flow
 
-3. **Database Setup**
-   ```bash
-   pnpm db:migrate
-   pnpm db:seed
-   ```
+### 🌐 **Deployment (Priority 2)**
 
-4. **Start Development Server**
-   ```bash
-   pnpm dev
-   ```
+- [ ] **Vercel Deployment**
+  - [ ] Connect GitHub repository to Vercel
+  - [ ] Configure environment variables
+  - [ ] Set up custom domain (if needed)
+  - [ ] Test production build
 
-## Environment Variables
+- [ ] **Domain & SSL**
+  - [ ] Purchase domain (e.g., `abcemssolutions.com`)
+  - [ ] Configure DNS
+  - [ ] Set up SSL certificate
 
-```env
-# Database
-DATABASE_URL="postgresql://username:password@localhost:5432/abcems"
+### 🔐 **Authentication (Priority 3)**
 
-# NextAuth
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET="your-secret-key-here"
+- [ ] **NextAuth Setup**
+  - [ ] Configure email provider
+  - [ ] Set up Google OAuth (optional)
+  - [ ] Test magic link authentication
+  - [ ] Remove Basic Auth middleware
 
-# Google OAuth (optional)
-GOOGLE_CLIENT_ID="your-google-client-id"
-GOOGLE_CLIENT_SECRET="your-google-client-secret"
+### 📧 **Email Configuration (Priority 4)**
 
-# Stripe
-STRIPE_PUBLISHABLE_KEY="pk_test_..."
-STRIPE_SECRET_KEY="sk_test_..."
-STRIPE_WEBHOOK_SECRET="whsec_..."
+- [ ] **Resend Setup**
+  - [ ] Verify domain in Resend
+  - [ ] Test email delivery
+  - [ ] Customize email templates
+  - [ ] Set up email analytics
 
-# Resend
-RESEND_API_KEY="re_..."
+### 🎨 **UI/UX Polish (Priority 5)**
 
-# Vercel Blob (Free alternative to AWS S3)
-BLOB_READ_WRITE_TOKEN="vercel_blob_rw_..."
+- [ ] **Branding**
+  - [ ] Add ABCEMS logo to all pages
+  - [ ] Implement brand colors (kpsNavy #00438c, kpsGold #cab068)
+  - [ ] Center all headings and subheadings
+  - [ ] Ensure visual format synergy
 
-# App
-NEXT_PUBLIC_APP_URL="http://localhost:3000"
+- [ ] **Marketing Site**
+  - [ ] Add testimonials section
+  - [ ] Create course detail pages
+  - [ ] Add instructor bios
+  - [ ] Implement contact forms
+
+### 🔧 **Advanced Features (Priority 6)**
+
+- [ ] **Admin Dashboard**
+  - [ ] User management interface
+  - [ ] Course management
+  - [ ] Payment tracking
+  - [ ] Analytics dashboard
+
+- [ ] **Instructor Tools**
+  - [ ] Attendance management
+  - [ ] Grade tracking
+  - [ ] Communication tools
+
+- [ ] **Student Portal**
+  - [ ] Progress tracking
+  - [ ] Certificate downloads
+  - [ ] Course materials access
+
+### 📊 **Analytics & Monitoring (Priority 7)**
+
+- [ ] **Google Analytics 4**
+  - [ ] Set up GA4 property
+  - [ ] Configure conversion tracking
+  - [ ] Set up custom events
+
+- [ ] **Error Monitoring**
+  - [ ] Set up Sentry or similar
+  - [ ] Monitor API errors
+  - [ ] Track performance metrics
+
+### 🧪 **Testing & Quality (Priority 8)**
+
+- [ ] **Automated Testing**
+  - [ ] Unit tests for core functions
+  - [ ] Integration tests for API routes
+  - [ ] E2E tests for critical flows
+
+- [ ] **Security Audit**
+  - [ ] Review authentication flows
+  - [ ] Check file upload security
+  - [ ] Validate payment processing
+
+## 🛠️ **Development Commands**
+
+```bash
+# Install dependencies
+pnpm install
+
+# Database operations
+pnpm db:generate    # Generate Prisma client
+pnpm db:migrate     # Run migrations
+pnpm db:seed        # Seed database
+
+# Development
+pnpm dev           # Start development server
+pnpm build         # Build for production
+pnpm start         # Start production server
+
+# Git workflow
+git checkout thekpsgroup    # Switch to feature branch
+git add .                   # Stage changes
+git commit -m "message"     # Commit changes
+git push origin thekpsgroup # Push to GitHub
 ```
 
-## Course Structure
-
-### EMT Prep Course - $200
-- 3-week program, live Zoom or in-person
-- Includes study guide + homework packet
-- Free retakes until you pass (if homework complete + attend both days)
-
-### Paramedic Prep Course - $400
-- Scenario-based prep with test strategy coaching
-- Homework packet + unlimited retakes until pass
-
-### Tutoring (Hourly)
-- EMT Tutoring - $40/hr
-- Paramedic Tutoring - $60/hr
-
-### Group Discount
-- 25% off for 10+ people signing up together
-
-## User Roles
-
-- **ADMIN**: Full access to admin dashboard, file uploads, roster management
-- **INSTRUCTOR**: Attendance tracking, certificate generation
-- **LEARNER**: Course access, homework downloads, certificate access
-
-## API Endpoints
-
-- `POST /api/checkout` - Create Stripe checkout session
-- `POST /api/webhooks/stripe` - Stripe webhook handler
-- `POST /api/admin/upload-file` - Upload homework/documents
-- `POST /api/admin/upload-roster` - Upload CSV roster
-- `POST /api/admin/audit-pack` - Generate audit pack
-- `POST /api/instructor/update-attendance` - Update student attendance
-
-## File Structure
+## 📁 **Project Structure**
 
 ```
-src/
-├── app/                    # Next.js App Router
-│   ├── api/               # API routes
-│   ├── admin/             # Admin dashboard
-│   ├── instructor/        # Instructor dashboard
-│   ├── dashboard/         # Student dashboard
-│   └── auth/              # Authentication pages
-├── components/            # React components
-├── lib/                   # Utility libraries
-│   ├── auth.ts           # NextAuth configuration
-│   ├── prisma.ts         # Database client
-│   ├── stripe.ts         # Stripe integration
-│   ├── email.ts          # Email templates
-│   ├── storage.ts        # File storage
-│   ├── certificates.ts   # PDF generation
-│   └── roster.ts         # Roster processing
-└── types/                 # TypeScript types
+abcems/
+├── prisma/           # Database schema & migrations
+├── src/
+│   ├── app/          # Next.js App Router pages
+│   ├── components/   # React components
+│   ├── lib/          # Utility functions
+│   └── middleware.ts # Route protection
+├── public/           # Static assets
+└── .env.example      # Environment template
 ```
 
-## Deployment
+## 🔗 **Key URLs**
 
-1. Set up PostgreSQL database
-2. Configure environment variables
-3. Run database migrations
-4. Deploy to Vercel, Railway, or your preferred platform
-5. Set up Stripe webhooks pointing to your domain
-6. Get your Vercel Blob token from the Vercel dashboard
+- **Repository**: https://github.com/thekpsgroup/abcems-funnel
+- **Local Development**: http://localhost:3000
+- **Admin Portal**: http://localhost:3000/portal (Basic Auth: admin:changeme)
 
-## Testing the Complete Flow
+## 📞 **Support & Resources**
 
-1. **Public Site**: Visit homepage, view courses, testimonials
-2. **Payment**: Click "Enroll Now" → Stripe checkout → Success page
-3. **Admin Upload**: Upload homework PDF → Students can download
-4. **Roster Upload**: Upload CSV → Users created, enrollments assigned
-5. **Attendance**: Instructor marks attendance → Certificate auto-generated
-6. **Audit Pack**: Admin generates roster CSV + certificate PDFs
+- **Stripe Dashboard**: https://dashboard.stripe.com
+- **Neon Dashboard**: https://console.neon.tech
+- **Vercel Dashboard**: https://vercel.com/dashboard
+- **Resend Dashboard**: https://resend.com/dashboard
 
-## Support
+## 🎯 **Success Metrics**
 
-For questions or issues, contact the development team or refer to the documentation.
+- [ ] Payment processing working
+- [ ] File uploads functional
+- [ ] Certificate generation working
+- [ ] Email delivery confirmed
+- [ ] Admin portal accessible
+- [ ] Student portal functional
+
+---
+
+**Ready to launch? Start with Priority 1 items and work your way down!** 🚀
