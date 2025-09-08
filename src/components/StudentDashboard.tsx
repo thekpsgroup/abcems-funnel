@@ -1,4 +1,3 @@
-import { getFileUrl } from "@/lib/storage"
 
 interface Enrollment {
   id: string
@@ -31,7 +30,7 @@ export async function StudentDashboard({ enrollments, files }: StudentDashboardP
         <h2 className="text-2xl font-bold text-kps-navy mb-6">Your Courses</h2>
         
         {enrollments.length === 0 ? (
-          <p className="text-gray-600">You haven't enrolled in any courses yet.</p>
+          <p className="text-gray-600">You haven&apos;t enrolled in any courses yet.</p>
         ) : (
           <div className="space-y-4">
             {enrollments.map((enrollment) => (

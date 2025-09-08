@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth"
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
@@ -7,12 +7,12 @@ import { StudentDashboard } from "@/components/StudentDashboard"
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
   
-  if (!session) {
+  if (!session || !(session as { user?: { id?: string } }).user) {
     redirect("/auth/signin")
   }
 
   const enrollments = await prisma.enrollment.findMany({
-    where: { userId: session.user.id },
+    where: { userId: (session as { user: { id: string } }).user.id },
     include: {
       course: { select: { title: true, description: true } },
       certificates: true
@@ -24,7 +24,7 @@ export default async function DashboardPage() {
     where: {
       OR: [
         { type: "HOMEWORK", courseId: null }, // General homework
-        { type: "HOMEWORK", course: { enrollments: { some: { userId: session.user.id } } } } // Course-specific homework
+        { type: "HOMEWORK", course: { enrollments: { some: { userId: (session as { user: { id: string } }).user.id } } } } // Course-specific homework
       ]
     },
     orderBy: { createdAt: "desc" }
@@ -43,7 +43,7 @@ export default async function DashboardPage() {
               </div>
             </div>
             <div className="text-sm">
-              Welcome, {session.user.name || session.user.email}
+              Welcome, {(session as { user: { name?: string; email: string } }).user.name || (session as { user: { name?: string; email: string } }).user.email}
             </div>
           </div>
         </div>

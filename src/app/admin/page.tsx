@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth"
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
@@ -10,7 +10,7 @@ import { RecentEnrollments } from "@/components/RecentEnrollments"
 export default async function AdminDashboard() {
   const session = await getServerSession(authOptions)
   
-  if (!session || session.user.role !== "ADMIN") {
+  if (!session || !(session as { user?: { role?: string } }).user || (session as { user: { role: string } }).user.role !== "ADMIN") {
     redirect("/auth/signin")
   }
 
@@ -36,7 +36,7 @@ export default async function AdminDashboard() {
               </div>
             </div>
             <div className="text-sm">
-              Welcome, {session.user.name || session.user.email}
+              Welcome, {(session as { user: { name?: string; email: string } }).user.name || (session as { user: { name?: string; email: string } }).user.email}
             </div>
           </div>
         </div>

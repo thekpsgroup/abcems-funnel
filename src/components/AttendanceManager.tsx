@@ -17,7 +17,7 @@ interface AttendanceManagerProps {
   enrollments: Enrollment[]
 }
 
-export function AttendanceManager({ sessionId, enrollments }: AttendanceManagerProps) {
+export function AttendanceManager({ enrollments }: AttendanceManagerProps) {
   const [updating, setUpdating] = useState<string | null>(null)
 
   const handleStatusUpdate = async (enrollmentId: string, newStatus: string) => {

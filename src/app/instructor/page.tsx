@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth"
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
@@ -7,12 +7,12 @@ import { AttendanceManager } from "@/components/AttendanceManager"
 export default async function InstructorDashboard() {
   const session = await getServerSession(authOptions)
   
-  if (!session || (session.user.role !== "ADMIN" && session.user.role !== "INSTRUCTOR")) {
+  if (!session || !(session as { user?: { role?: string; id?: string } }).user || ((session as { user: { role: string; id: string } }).user.role !== "ADMIN" && (session as { user: { role: string; id: string } }).user.role !== "INSTRUCTOR")) {
     redirect("/auth/signin")
   }
 
   const sessions = await prisma.session.findMany({
-    where: { instructorId: session.user.id },
+    where: { instructorId: (session as { user: { id: string } }).user.id },
     include: {
       course: { 
         select: { 
@@ -42,7 +42,7 @@ export default async function InstructorDashboard() {
               </div>
             </div>
             <div className="text-sm">
-              Welcome, {session.user.name || session.user.email}
+              Welcome, {(session as { user: { name?: string; email: string } }).user.name || (session as { user: { name?: string; email: string } }).user.email}
             </div>
           </div>
         </div>

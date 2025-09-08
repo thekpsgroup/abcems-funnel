@@ -13,7 +13,7 @@ export interface RosterResult {
 
 export async function uploadRoster({ file, courseId }: UploadRosterParams): Promise<RosterResult> {
   // First upload the file to storage
-  const { key } = await uploadFile({
+  await uploadFile({
     file,
     type: "ROSTER",
     courseId

@@ -15,7 +15,6 @@ export async function uploadFile({
   uploadedBy = "admin" 
 }: UploadFileParams) {
   const timestamp = Date.now()
-  const fileExtension = file.name.split('.').pop()
   const fileName = `${timestamp}-${file.name}`
   
   let pathname: string

@@ -25,5 +25,5 @@ export async function POST() {
   }
 
   const out = await zip.generateAsync({ type: "nodebuffer" });
-  return new NextResponse(out as any, { headers: { "Content-Type": "application/zip", "Content-Disposition": `attachment; filename=abcems-audit-pack.zip` } });
+  return new NextResponse(new Uint8Array(out), { headers: { "Content-Type": "application/zip", "Content-Disposition": `attachment; filename=abcems-audit-pack.zip` } });
 }

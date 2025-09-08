@@ -1,10 +1,10 @@
-import { NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import GoogleProvider from "next-auth/providers/google"
 import EmailProvider from "next-auth/providers/email"
 import { prisma } from "./prisma"
 
-export const authOptions: NextAuthOptions = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const authOptions: any = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    session: async ({ session, token }) => {
+    session: async ({ session, token }: { session: { user?: { id?: string; role?: string } }; token: { sub?: string } }) => {
       if (session?.user && token?.sub) {
         session.user.id = token.sub
         // Get user role from database
@@ -36,7 +36,7 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     },
-    jwt: async ({ user, token }) => {
+    jwt: async ({ user, token }: { user?: { id: string }; token: { uid?: string } }) => {
       if (user) {
         token.uid = user.id
       }
@@ -44,7 +44,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as const,
   },
   pages: {
     signIn: "/auth/signin",

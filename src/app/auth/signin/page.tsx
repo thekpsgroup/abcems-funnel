@@ -1,13 +1,12 @@
 "use client"
 
-import { signIn, getSession } from "next-auth/react"
+import { signIn } from "next-auth/react"
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 export default function SignInPage() {
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
 
   const handleEmailSignIn = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -106,9 +105,9 @@ export default function SignInPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <a href="/" className="text-kps-navy hover:text-kps-gold text-sm">
+          <Link href="/" className="text-kps-navy hover:text-kps-gold text-sm">
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
