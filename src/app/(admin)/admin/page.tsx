@@ -49,7 +49,7 @@ export default async function AdminDashboard() {
               <p className="text-sm text-gray-600">Manage your EMS training platform</p>
             </div>
             <div className="text-right">
-              <p className="text-sm font-medium text-gray-900">{session.user?.name || 'Admin'}</p>
+              <p className="text-sm font-medium text-gray-900">{(session as { user?: { name?: string } }).user?.name || 'Admin'}</p>
               <p className="text-xs text-gray-500">Administrator</p>
             </div>
           </div>
