@@ -42,7 +42,7 @@ export default function CreateUsersPage() {
   const [loading, setLoading] = useState(false)
   const [bulkLoading, setBulkLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<"single" | "bulk">("single")
-  const [bulkResults, setBulkResults] = useState<Array<{ success: boolean; user?: CreatedUser; error?: string }>>([])
+  // const [bulkResults, setBulkResults] = useState<Array<{ success: boolean; user?: CreatedUser; error?: string }>>([]) // Reserved for future use
 
   const {
     register,
@@ -160,7 +160,7 @@ ABCEMS Solutions Team`
       if (!response.ok) throw new Error("Bulk creation failed")
 
       const results: Array<{ success: boolean; user?: CreatedUser; error?: string }> = await response.json()
-      setBulkResults(results)
+      // setBulkResults(results) // Reserved for future use
       setCreatedUsers(prev => [...prev, ...results.filter((r) => r.success).map((r) => r.user!)])
       toast.success(`Created ${results.filter((r) => r.success).length} users successfully!`)
     } catch {
