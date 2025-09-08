@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { DownloadIcon, ShareIcon } from "@heroicons/react/24/outline"
+import { ArrowDownTrayIcon, ShareIcon } from "@heroicons/react/24/outline"
 import toast from "react-hot-toast"
 
 interface CertificateData {
@@ -56,7 +56,7 @@ Emergency Medical Training
 
       toast.success("Certificate downloaded!")
       onDownload?.()
-    } catch (error) {
+    } catch {
       toast.error("Failed to download certificate")
     }
   }
@@ -98,7 +98,7 @@ Emergency Medical Training
           <p className="text-gray-700 mb-4">This is to certify that</p>
           <h2 className="text-4xl font-bold text-[#8B0000] mb-4">{certificate.studentName}</h2>
           <p className="text-gray-700 mb-4">has successfully completed the course</p>
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">"{certificate.courseName}"</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">&ldquo;{certificate.courseName}&rdquo;</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
             <div>
@@ -139,7 +139,7 @@ Emergency Medical Training
           onClick={handleDownload}
           className="flex items-center px-6 py-3 bg-[#8B0000] text-white rounded-lg hover:bg-[#A52A2A] transition-colors"
         >
-          <DownloadIcon className="h-5 w-5 mr-2" />
+          <ArrowDownTrayIcon className="h-5 w-5 mr-2" />
           Download Certificate
         </button>
         <button

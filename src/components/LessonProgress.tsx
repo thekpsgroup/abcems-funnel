@@ -14,13 +14,12 @@ interface Lesson {
 }
 
 interface LessonProgressProps {
-  courseId: string
   enrollmentId: string
   lessons: Lesson[]
   onProgressUpdate?: (lessonId: string, completed: boolean) => void
 }
 
-export function LessonProgress({ courseId, enrollmentId, lessons, onProgressUpdate }: LessonProgressProps) {
+export function LessonProgress({ enrollmentId, lessons, onProgressUpdate }: LessonProgressProps) {
   const [updatingLesson, setUpdatingLesson] = useState<string | null>(null)
 
   const handleLessonComplete = async (lessonId: string, completed: boolean) => {
@@ -59,7 +58,7 @@ export function LessonProgress({ courseId, enrollmentId, lessons, onProgressUpda
           })
         }, 1000)
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to update lesson progress")
     } finally {
       setUpdatingLesson(null)
@@ -193,7 +192,7 @@ export function LessonProgress({ courseId, enrollmentId, lessons, onProgressUpda
         <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white text-center">
           <CheckCircleIcon className="h-16 w-16 mx-auto mb-4" />
           <h3 className="text-2xl font-bold mb-2">Course Completed! 🎉</h3>
-          <p className="mb-4">Congratulations! You've successfully completed all lessons.</p>
+          <p className="mb-4">Congratulations! You&apos;ve successfully completed all lessons.</p>
           <p className="text-sm opacity-90">Your certificate has been generated and is available in your dashboard.</p>
         </div>
       )}

@@ -6,15 +6,11 @@ import { useSession } from "next-auth/react"
 import Link from "next/link"
 import {
   ArrowLeftIcon,
-  AcademicCapIcon,
   ClockIcon,
   UserIcon,
-  StarIcon,
-  PlayIcon,
-  CheckCircleIcon
+  StarIcon
 } from "@heroicons/react/24/outline"
 import { LessonProgress } from "@/components/LessonProgress"
-import toast from "react-hot-toast"
 
 interface Course {
   id: string
@@ -41,7 +37,7 @@ interface Lesson {
 export default function CourseViewPage() {
   const { courseId } = useParams()
   const router = useRouter()
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const [course, setCourse] = useState<Course | null>(null)
   const [lessons, setLessons] = useState<Lesson[]>([])
   const [loading, setLoading] = useState(true)
@@ -144,7 +140,7 @@ export default function CourseViewPage() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Course Not Found</h1>
-          <p className="text-gray-600 mb-6">The course you're looking for doesn't exist or you don't have access.</p>
+          <p className="text-gray-600 mb-6">The course you&apos;re looking for doesn&apos;t exist or you don&apos;t have access.</p>
           <Link
             href="/dashboard"
             className="bg-[#8B0000] text-white px-6 py-3 rounded-lg hover:bg-[#A52A2A] transition-colors"
@@ -261,7 +257,6 @@ export default function CourseViewPage() {
           {/* Lesson Progress */}
           <div className="lg:col-span-2">
             <LessonProgress
-              courseId={course.id}
               enrollmentId={course.enrollmentId}
               lessons={lessons}
               onProgressUpdate={handleProgressUpdate}

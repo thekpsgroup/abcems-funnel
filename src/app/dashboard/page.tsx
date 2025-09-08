@@ -4,20 +4,17 @@ import { useState, useEffect } from "react"
 import { useSession, signOut } from "next-auth/react"
 import Link from "next/link"
 import {
-  AcademicCapIcon,
-  ChartBarIcon,
   ClockIcon,
   TrophyIcon,
   UserIcon,
   CogIcon,
-  ArrowRightIcon,
   CheckCircleIcon,
   PlayIcon,
   BookOpenIcon,
-  CalendarIcon,
   StarIcon,
   FireIcon,
-  TargetIcon
+  TagIcon,
+  UserCircleIcon
 } from "@heroicons/react/24/outline"
 import toast from "react-hot-toast"
 
@@ -52,7 +49,7 @@ export default function StudentDashboard() {
   const [courses, setCourses] = useState<Course[]>([])
   const [stats, setStats] = useState<DashboardStats | null>(null)
   const [loading, setLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState<'overview' | 'courses' | 'certificates' | 'profile'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'courses' | 'certificates'>('overview')
 
   // Mock data for demonstration
   useEffect(() => {
@@ -339,66 +336,6 @@ export default function StudentDashboard() {
     </div>
   )
 
-  const renderProfile = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">My Profile</h2>
-
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <div className="flex items-center space-x-6 mb-6">
-          <div className="w-20 h-20 bg-[#8B0000] rounded-full flex items-center justify-center">
-            <span className="text-white font-medium text-2xl">
-              {(session?.user?.name || session?.user?.email || 'U').charAt(0).toUpperCase()}
-            </span>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900">
-              {session?.user?.name || 'Student'}
-            </h3>
-            <p className="text-gray-600">{session?.user?.email}</p>
-            <p className="text-sm text-gray-500">Student Account</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h4 className="text-lg font-medium text-gray-900 mb-4">Account Settings</h4>
-            <div className="space-y-3">
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Change Password</div>
-                <div className="text-sm text-gray-600">Update your account password</div>
-              </button>
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Notification Preferences</div>
-                <div className="text-sm text-gray-600">Manage email and push notifications</div>
-              </button>
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Privacy Settings</div>
-                <div className="text-sm text-gray-600">Control your data and privacy</div>
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium text-gray-900 mb-4">Learning Preferences</h4>
-            <div className="space-y-3">
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Learning Goals</div>
-                <div className="text-sm text-gray-600">Set your learning objectives</div>
-              </button>
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Study Schedule</div>
-                <div className="text-sm text-gray-600">Set your preferred study times</div>
-              </button>
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="font-medium text-gray-900">Certificate Settings</div>
-                <div className="text-sm text-gray-600">Manage certificate display and sharing</div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
 
   const renderOverview = () => (
     <div className="space-y-8">
@@ -450,7 +387,7 @@ export default function StudentDashboard() {
               <p className="text-3xl font-bold text-blue-600">{stats?.averageProgress}%</p>
               <p className="text-sm text-gray-500">across all courses</p>
             </div>
-            <TargetIcon className="h-12 w-12 text-blue-500 opacity-80" />
+            <TagIcon className="h-12 w-12 text-blue-500 opacity-80" />
           </div>
         </div>
 
@@ -473,7 +410,7 @@ export default function StudentDashboard() {
           <div className="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg">
             <CheckCircleIcon className="h-8 w-8 text-blue-600" />
             <div className="flex-1">
-              <p className="font-medium text-gray-900">Completed "Basic Life Support" lesson</p>
+              <p className="font-medium text-gray-900">Completed &ldquo;Basic Life Support&rdquo; lesson</p>
               <p className="text-sm text-gray-600">EMT Basic Preparation Course • 2 hours ago</p>
             </div>
           </div>
@@ -481,7 +418,7 @@ export default function StudentDashboard() {
             <TrophyIcon className="h-8 w-8 text-green-600" />
             <div className="flex-1">
               <p className="font-medium text-gray-900">Earned CPR Certification</p>
-              <p className="text-sm text-gray-600">Certificate available for download • Yesterday</p>
+              <p className="text-sm text-gray-600">Certificate available for download &bull; Yesterday</p>
             </div>
           </div>
           <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-lg">
@@ -538,16 +475,6 @@ export default function StudentDashboard() {
                 >
                   Certificates
                 </button>
-                <button
-                  onClick={() => setActiveTab('profile')}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    activeTab === 'profile'
-                      ? 'bg-[#8B0000] text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  Profile
-                </button>
               </nav>
             </div>
 
@@ -558,9 +485,17 @@ export default function StudentDashboard() {
                 </p>
                 <p className="text-xs text-gray-500">Student</p>
               </div>
+              <Link
+                href="/profile"
+                className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                title="My Profile"
+              >
+                <UserCircleIcon className="h-5 w-5" />
+              </Link>
               <button
                 onClick={() => signOut({ callbackUrl: '/' })}
                 className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                title="Sign Out"
               >
                 <CogIcon className="h-5 w-5" />
               </button>
@@ -574,7 +509,6 @@ export default function StudentDashboard() {
         {activeTab === 'overview' && renderOverview()}
         {activeTab === 'courses' && renderCourses()}
         {activeTab === 'certificates' && renderCertificates()}
-        {activeTab === 'profile' && renderProfile()}
       </div>
     </div>
   )
