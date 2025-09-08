@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function InstructorsPage() {
   return (
@@ -6,6 +7,13 @@ export default function InstructorsPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white">
         <div className="absolute inset-0 bg-black/20"></div>
+        <Image
+          src="/images/hero/hero-large-awesome.jpg"
+          alt="ABCEMS Training in Action"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <div className="text-center">
             <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
@@ -36,32 +44,36 @@ export default function InstructorsPage() {
           </div>
           
           <div className="space-y-16">
-            {/* Captain Hempstead */}
+            {/* Captain Jake Hempstead */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="bg-gray-50 p-8 rounded-2xl">
-                  <div className="w-32 h-32 bg-[#8B0000] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6">
+                    <Image
+                      src="/images/instructors/captain-jake-hempstead.jpg"
+                      alt="Captain Jake Hempstead"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Captain Hempstead</h3>
+                    <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Captain Jake Hempstead</h3>
                     <p className="text-gray-600 mb-4">Founder & Lead Instructor</p>
                     <div className="flex flex-wrap justify-center gap-2 mb-4">
                       <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Veteran</span>
                       <span className="bg-[#DAA520] text-[#8B0000] px-3 py-1 rounded-full text-sm font-semibold">Paramedic</span>
-                      <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">EMS Instructor</span>
+                      <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Captain</span>
                     </div>
                   </div>
                 </div>
               </div>
               
               <div className="order-1 lg:order-2">
-                <h3 className="text-3xl font-bold text-[#8B0000] mb-6">Captain Hempstead</h3>
+                <h3 className="text-3xl font-bold text-[#8B0000] mb-6">Captain Jake Hempstead</h3>
                 <div className="space-y-4 text-lg text-gray-600 mb-8">
                   <p>
-                    Veteran, paramedic, and EMS instructor based in Texas. Captain Hempstead founded ABCEMS to help students 
+                    Veteran, paramedic, and EMS instructor based in Texas. Captain Jake Hempstead founded ABCEMS to help students 
                     pass the NREMT with confidence using real-world field experience and proven prep strategies.
                   </p>
                   <p>
@@ -102,10 +114,80 @@ export default function InstructorsPage() {
               </div>
             </div>
 
-            {/* Jeff Carter */}
+            {/* Lieutenant Brian Collins */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gray-50 p-8 rounded-2xl">
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6">
+                    <Image
+                      src="/images/instructors/lieutenant-brian-collins.jpg"
+                      alt="Lieutenant Brian Collins"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Lieutenant Brian Collins</h3>
+                    <p className="text-gray-600 mb-4">Instructor</p>
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
+                      <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Paramedic</span>
+                      <span className="bg-[#DAA520] text-[#8B0000] px-3 py-1 rounded-full text-sm font-semibold">Lieutenant</span>
+                      <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Instructor</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="order-1 lg:order-2">
+                <h3 className="text-3xl font-bold text-[#8B0000] mb-6">Lieutenant Brian Collins</h3>
+                <div className="space-y-4 text-lg text-gray-600 mb-8">
+                  <p>
+                    Experienced paramedic and instructor who brings real-world field experience to the classroom. 
+                    Lieutenant Collins specializes in helping students understand complex EMS concepts through practical application.
+                  </p>
+                  <p>
+                    Known for his systematic approach to teaching and attention to detail, Lieutenant Collins ensures 
+                    students master both the theoretical knowledge and practical skills needed for EMS success.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-semibold text-[#8B0000] mb-4">Teaching Strengths</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-[#DAA520] mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Systematic approach to complex EMS concepts
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-[#DAA520] mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Attention to detail and precision in instruction
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-[#DAA520] mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Practical application of theoretical knowledge
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-[#DAA520] mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Real-world field experience and leadership
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Driver/FEO Jeff Carter */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-bold text-[#8B0000] mb-6">Jeff Carter</h3>
+                <h3 className="text-3xl font-bold text-[#8B0000] mb-6">Driver/FEO Jeff Carter</h3>
                 <div className="space-y-4 text-lg text-gray-600 mb-8">
                   <p>
                     Experienced instructor and tutor who works directly with students to build confidence and understanding. 
@@ -150,17 +232,21 @@ export default function InstructorsPage() {
               
               <div>
                 <div className="bg-gray-50 p-8 rounded-2xl">
-                  <div className="w-32 h-32 bg-[#DAA520] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-16 h-16 text-[#8B0000]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6">
+                    <Image
+                      src="/images/instructors/driver-feo-jeff-carter.jpg"
+                      alt="Driver/FEO Jeff Carter"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Jeff Carter</h3>
+                    <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Driver/FEO Jeff Carter</h3>
                     <p className="text-gray-600 mb-4">Instructor & Tutor</p>
                     <div className="flex flex-wrap justify-center gap-2 mb-4">
                       <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Paramedic</span>
-                      <span className="bg-[#DAA520] text-[#8B0000] px-3 py-1 rounded-full text-sm font-semibold">Instructor</span>
+                      <span className="bg-[#DAA520] text-[#8B0000] px-3 py-1 rounded-full text-sm font-semibold">Driver/FEO</span>
                       <span className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">Tutor</span>
                     </div>
                   </div>
@@ -171,8 +257,52 @@ export default function InstructorsPage() {
         </div>
       </section>
 
-      {/* Teaching Philosophy */}
+      {/* Course in Action */}
       <section className="py-20 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Training in Action</h2>
+            <p className="text-xl text-gray-600">Real-world EMS training with hands-on experience</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/course/course-in-action.jpg"
+                  alt="ABCEMS Course in Action"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Hands-On Learning</h3>
+              <p className="text-gray-600">
+                Students engage in real-world scenarios and practical exercises that prepare them for actual emergency situations.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                <Image
+                  src="/images/course/students-learning.jpg"
+                  alt="Students Learning EMS Skills"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Expert Instruction</h3>
+              <p className="text-gray-600">
+                Our experienced instructors provide personalized guidance and real-world insights that go beyond textbook learning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Teaching Philosophy */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Teaching Philosophy</h2>
