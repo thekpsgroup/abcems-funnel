@@ -4,17 +4,16 @@ import { useState, useEffect } from "react"
 import { useSession, signOut } from "next-auth/react"
 import Link from "next/link"
 import {
-  ClockIcon,
+  AcademicCapIcon,
   TrophyIcon,
-  UserIcon,
+  UserCircleIcon,
   CogIcon,
   CheckCircleIcon,
   PlayIcon,
   BookOpenIcon,
   StarIcon,
   FireIcon,
-  TagIcon,
-  UserCircleIcon
+  ArrowRightIcon
 } from "@heroicons/react/24/outline"
 import toast from "react-hot-toast"
 
@@ -147,7 +146,7 @@ export default function StudentDashboard() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#8B0000] mx-auto"></div>
           <p className="text-gray-600 mt-4">Loading your dashboard...</p>
@@ -158,7 +157,7 @@ export default function StudentDashboard() {
 
   if (status === 'unauthenticated') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Please Sign In</h1>
           <p className="text-gray-600 mb-6">You need to be signed in to access your dashboard.</p>
@@ -434,56 +433,17 @@ export default function StudentDashboard() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Navigation Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-8">
-              <Link href="/" className="text-2xl font-bold text-[#8B0000]">
-                ABCEMS
-              </Link>
+            <Link href="/" className="text-2xl font-bold text-[#8B0000]">ABCEMS</Link>
 
-              <nav className="hidden md:flex space-x-6">
-                <button
-                  onClick={() => setActiveTab('overview')}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    activeTab === 'overview'
-                      ? 'bg-[#8B0000] text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  Overview
-                </button>
-                <button
-                  onClick={() => setActiveTab('courses')}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    activeTab === 'courses'
-                      ? 'bg-[#8B0000] text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  My Courses
-                </button>
-                <button
-                  onClick={() => setActiveTab('certificates')}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    activeTab === 'certificates'
-                      ? 'bg-[#8B0000] text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  Certificates
-                </button>
-              </nav>
-            </div>
-
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
               <div className="text-right">
-                <p className="text-sm font-medium text-gray-900">
-                  {session?.user?.name || 'Student'}
-                </p>
-                <p className="text-xs text-gray-500">Student</p>
+                <p className="text-sm font-medium text-gray-900">{session?.user?.name || 'Student'}</p>
+                <p className="text-xs text-gray-500">Student Dashboard</p>
               </div>
               <Link
                 href="/profile"
@@ -506,9 +466,131 @@ export default function StudentDashboard() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {activeTab === 'overview' && renderOverview()}
-        {activeTab === 'courses' && renderCourses()}
-        {activeTab === 'certificates' && renderCertificates()}
+        {/* Welcome Section */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Welcome back, {session?.user?.name?.split(' ')[0] || 'Student'}!
+          </h1>
+          <p className="text-lg text-gray-600">Continue your learning journey</p>
+        </div>
+
+        {/* Stats Overview */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-[#8B0000] mb-2">{stats?.totalCourses}</div>
+            <div className="text-sm text-gray-600">Total Courses</div>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-green-600 mb-2">{stats?.completedCourses}</div>
+            <div className="text-sm text-gray-600">Completed</div>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-blue-600 mb-2">{Math.round(stats?.totalHours || 0)}</div>
+            <div className="text-sm text-gray-600">Learning Hours</div>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-purple-600 mb-2">{stats?.certificatesEarned}</div>
+            <div className="text-sm text-gray-600">Certificates</div>
+          </div>
+        </div>
+
+        {/* My Courses */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">My Courses</h2>
+            <Link
+              href="/courses"
+              className="text-[#8B0000] hover:text-[#A52A2A] text-sm font-medium transition-colors"
+            >
+              Browse More →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((course) => (
+              <div key={course.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{course.title}</h3>
+                      <div className="flex items-center space-x-2 mb-3">
+                        <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getDifficultyColor(course.difficulty)}`}>
+                          {course.difficulty}
+                        </span>
+                        <div className="flex items-center text-xs text-gray-500">
+                          <StarIcon className="h-3 w-3 mr-1" />
+                          {course.rating}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="mb-4">
+                    <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <span>Progress</span>
+                      <span>{course.progress}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className={`h-2 rounded-full transition-all duration-500 ${getProgressColor(course.progress)}`}
+                        style={{ width: `${course.progress}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <Link
+                    href={`/dashboard/courses/${course.id}`}
+                    className="w-full bg-[#8B0000] text-white py-3 px-4 rounded-lg hover:bg-[#A52A2A] transition-colors inline-flex items-center justify-center group"
+                  >
+                    {course.progress === 100 ? 'Review Course' : 'Continue Learning'}
+                    <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link
+              href="/profile"
+              className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+            >
+              <UserCircleIcon className="h-8 w-8 text-[#8B0000] mr-4" />
+              <div>
+                <div className="font-medium text-gray-900">My Profile</div>
+                <div className="text-sm text-gray-600">Manage account settings</div>
+              </div>
+            </Link>
+
+            <Link
+              href="/courses"
+              className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+            >
+              <AcademicCapIcon className="h-8 w-8 text-[#8B0000] mr-4" />
+              <div>
+                <div className="font-medium text-gray-900">Browse Courses</div>
+                <div className="text-sm text-gray-600">Find new courses</div>
+              </div>
+            </Link>
+
+            <Link
+              href="#certificates"
+              className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+            >
+              <TrophyIcon className="h-8 w-8 text-[#8B0000] mr-4" />
+              <div>
+                <div className="font-medium text-gray-900">My Certificates</div>
+                <div className="text-sm text-gray-600">View achievements</div>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )
