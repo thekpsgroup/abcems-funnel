@@ -214,15 +214,22 @@ export default async function AdminDashboard() {
                 <span className="font-medium">Manage Users</span>
               </Link>
               <Link
-                href="/admin/bulk-email"
+                href="/admin/courses"
                 className="flex items-center justify-center px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                <AcademicCapIcon className="h-5 w-5 mr-2" />
+                <span className="font-medium">Manage Courses</span>
+              </Link>
+              <Link
+                href="/admin/bulk-email"
+                className="flex items-center justify-center px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
                 <EnvelopeIcon className="h-5 w-5 mr-2" />
                 <span className="font-medium">Send Emails</span>
               </Link>
               <Link
                 href="/admin/reports"
-                className="flex items-center justify-center px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="flex items-center justify-center px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 <ChartBarIcon className="h-5 w-5 mr-2" />
                 <span className="font-medium">View Reports</span>
