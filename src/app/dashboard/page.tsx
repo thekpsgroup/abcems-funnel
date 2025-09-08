@@ -253,13 +253,13 @@ export default function StudentDashboard() {
               </div>
 
               <div className="flex space-x-3">
-                <button
+                <Link
+                  href={`/dashboard/courses/${course.id}`}
                   className="flex-1 flex items-center justify-center px-4 py-2 bg-[#8B0000] text-white text-sm rounded-lg hover:bg-[#A52A2A] transition-colors"
-                  onClick={() => toast.success(`Continuing ${course.title}`)}
                 >
                   <PlayIcon className="h-4 w-4 mr-2" />
                   {course.progress === 100 ? 'Review Course' : 'Continue Learning'}
-                </button>
+                </Link>
                 <button
                   className="flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-lg hover:bg-gray-200 transition-colors"
                   onClick={() => toast.success(`Viewing materials for ${course.title}`)}
