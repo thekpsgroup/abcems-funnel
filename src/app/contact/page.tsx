@@ -17,7 +17,7 @@ export default function ContactPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#contact-form"
-                className="rounded-md bg-[#DAA520] px-6 py-3 text-lg font-semibold text-[#8B0000] shadow-sm hover:bg-[#C1950A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DAA520] transition-colors"
+                className="rounded-md bg-gradient-to-r from-[#DAA520] to-[#B8860B] px-6 py-3 text-lg font-semibold text-[#8B0000] shadow-lg hover:shadow-xl hover:from-[#B8860B] hover:to-[#DAA520] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DAA520] transition-all duration-300 transform hover:-translate-y-1"
               >
                 Send Us a Message
               </a>
@@ -36,13 +36,13 @@ export default function ContactPage() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Phone */}
-            <div className="text-center p-8 bg-gray-50 rounded-2xl">
-              <div className="w-16 h-16 bg-[#8B0000] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Phone</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">Phone</h3>
               <p className="text-lg text-gray-600 mb-2">Call or text us anytime</p>
               <a 
                 href="tel:469-400-8195" 
@@ -53,13 +53,13 @@ export default function ContactPage() {
             </div>
 
             {/* Email */}
-            <div className="text-center p-8 bg-gray-50 rounded-2xl">
-              <div className="w-16 h-16 bg-[#DAA520] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#DAA520] to-[#B8860B] rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-8 h-8 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Email</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">Email</h3>
               <p className="text-lg text-gray-600 mb-2">Send us a detailed message</p>
               <a 
                 href="mailto:info@abcemssolutions.com" 
@@ -70,14 +70,14 @@ export default function ContactPage() {
             </div>
 
             {/* Location */}
-            <div className="text-center p-8 bg-gray-50 rounded-2xl">
-              <div className="w-16 h-16 bg-[#8B0000] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Location</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">Location</h3>
               <p className="text-lg text-gray-600 mb-2">Serving all of Texas</p>
               <p className="text-lg font-semibold text-[#8B0000]">
                 Royse City, Texas 75189
@@ -98,7 +98,7 @@ export default function ContactPage() {
             <p className="text-xl text-gray-600">We&apos;ll respond within 24 hours</p>
           </div>
           
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-all duration-200 hover:border-gray-400"
                     placeholder="Your full name"
                   />
                 </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-all duration-200 hover:border-gray-400"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-all duration-200 hover:border-gray-400"
                   placeholder="(469) 400-8195"
                 />
               </div>
@@ -151,7 +151,7 @@ export default function ContactPage() {
                   name="message"
                   rows={6}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-colors resize-vertical"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B0000] focus:border-transparent transition-all duration-200 hover:border-gray-400 resize-vertical"
                   placeholder="Tell us about your questions, course interests, or how we can help you succeed..."
                 ></textarea>
               </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-[#8B0000] rounded-lg hover:bg-[#A52A2A] focus:outline-none focus:ring-2 focus:ring-[#8B0000] focus:ring-offset-2 transition-colors"
+                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#8B0000] to-[#A52A2A] rounded-lg hover:from-[#660000] hover:to-[#8B0000] focus:outline-none focus:ring-2 focus:ring-[#8B0000] focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   Submit Inquiry
                 </button>

@@ -124,7 +124,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-[#8B0000] rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center shadow-md">
                   <span className="text-white font-bold">A</span>
                 </div>
                 <div>
@@ -135,10 +135,10 @@ export default function Footer() {
               
               {/* Optional Badges */}
               <div className="flex items-center space-x-2">
-                <div className="bg-[#8B0000] text-white px-2 py-1 rounded text-xs font-semibold">
+                <div className="bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
                   Veteran-Owned
                 </div>
-                <div className="bg-[#DAA520] text-[#8B0000] px-2 py-1 rounded text-xs font-semibold">
+                <div className="bg-gradient-to-r from-[#DAA520] to-[#B8860B] text-[#8B0000] px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
                   NREMT Prep
                 </div>
               </div>

@@ -12,13 +12,13 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center group">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#8B0000] rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
                 <span className="text-white font-bold text-lg">A</span>
               </div>
               <div className="hidden sm:block">
-                <div className="text-xl font-bold text-[#8B0000]">ABCEMS</div>
+                <div className="text-xl font-bold text-[#8B0000] group-hover:text-[#A52A2A] transition-colors">ABCEMS</div>
                 <div className="text-xs text-gray-600">Solutions</div>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function Header() {
             </Link>
             <Link 
               href="#courses" 
-              className="bg-[#8B0000] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#660000] transition-colors"
+              className="bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white px-6 py-2 rounded-lg font-semibold hover:from-[#660000] hover:to-[#8B0000] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
               Enroll Now
             </Link>
@@ -185,7 +185,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="#courses" 
-                  className="block bg-[#8B0000] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#660000] transition-colors text-center"
+                  className="block bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#660000] hover:to-[#8B0000] transition-all duration-200 text-center shadow-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Enroll Now

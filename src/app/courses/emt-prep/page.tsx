@@ -19,13 +19,13 @@ export default function EMTPrepPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
               <Link
                 href="#enrollment"
-                className="rounded-md bg-[#DAA520] px-8 py-4 text-lg font-semibold text-[#8B0000] shadow-lg hover:bg-[#B8860B] transition-colors"
+                className="rounded-md bg-gradient-to-r from-[#DAA520] to-[#B8860B] px-8 py-4 text-lg font-semibold text-[#8B0000] shadow-lg hover:shadow-xl hover:from-[#B8860B] hover:to-[#DAA520] transition-all duration-300 transform hover:-translate-y-1"
               >
                 Enroll Now
               </Link>
               <Link
                 href="#contact"
-                className="rounded-md border-2 border-white px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-[#8B0000] transition-colors"
+                className="rounded-md border-2 border-white px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-[#8B0000] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
               >
                 Talk to an Instructor
               </Link>
@@ -64,73 +64,73 @@ export default function EMTPrepPage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">Airway, Breathing, Circulation</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">Airway, Breathing, Circulation</h3>
               <p className="text-gray-600">
                 Master the fundamentals of patient assessment, airway management, and circulation support with hands-on practice scenarios.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">Trauma & Medical Emergencies</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">Trauma & Medical Emergencies</h3>
               <p className="text-gray-600">
                 Learn to assess and manage trauma patients, medical emergencies, and special populations with confidence.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">EMS Operations & Safety</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">EMS Operations & Safety</h3>
               <p className="text-gray-600">
                 Understand EMS operations, scene safety, communication, and the legal aspects of emergency medical services.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">Test-Taking Strategies</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">Test-Taking Strategies</h3>
               <p className="text-gray-600">
                 Master proven strategies for the NREMT exam format, including how to approach scenario-based questions effectively.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">Study Guide & Homework</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">Study Guide & Homework</h3>
               <p className="text-gray-600">
                 Comprehensive study materials and homework packets included to reinforce learning between sessions.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="w-12 h-12 bg-[#8B0000] rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-4">Free Retakes</h3>
+              <h3 className="text-xl font-semibold text-[#8B0000] mb-4 group-hover:text-[#A52A2A] transition-colors">Free Retakes</h3>
               <p className="text-gray-600">
                 If you don&apos;t pass on your first attempt, retake the course at no additional cost until you succeed.
               </p>

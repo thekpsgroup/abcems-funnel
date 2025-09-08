@@ -19,13 +19,13 @@ export default function Home() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
               <Link
                 href="#courses"
-                className="rounded-md bg-[#DAA520] px-8 py-4 text-lg font-semibold text-[#8B0000] shadow-lg hover:bg-[#B8860B] transition-colors"
+                className="rounded-md bg-gradient-to-r from-[#DAA520] to-[#B8860B] px-8 py-4 text-lg font-semibold text-[#8B0000] shadow-lg hover:shadow-xl hover:from-[#B8860B] hover:to-[#DAA520] transition-all duration-300 transform hover:-translate-y-1"
               >
                 View Courses
               </Link>
               <Link
                 href="#contact"
-                className="rounded-md border-2 border-white px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-[#8B0000] transition-colors"
+                className="rounded-md border-2 border-white px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-[#8B0000] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
               >
                 Contact an Instructor
               </Link>
@@ -63,11 +63,11 @@ export default function Home() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {/* EMT-Basic NREMT Prep */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="p-8">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2">EMT-Basic NREMT Prep</h3>
-                  <p className="text-3xl font-bold text-[#DAA520]">$200</p>
+                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">EMT-Basic NREMT Prep</h3>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-[#DAA520] to-[#B8860B] bg-clip-text text-transparent">$200</p>
                 </div>
                 <p className="text-gray-600 mb-6 text-center">
                   3-week program with live Zoom or in-person sessions. Includes study guides + homework packet.
@@ -92,18 +92,18 @@ export default function Home() {
                     Free retakes until you pass
                   </li>
                 </ul>
-                <Link href="/courses/emt-prep" className="block w-full bg-[#8B0000] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#660000] transition-colors text-center">
+                <Link href="/courses/emt-prep" className="block w-full bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#660000] hover:to-[#8B0000] transition-all duration-200 text-center shadow-md hover:shadow-lg">
                   Learn More
                 </Link>
               </div>
             </div>
 
             {/* Paramedic NREMT Prep */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="p-8">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2">Paramedic NREMT Prep</h3>
-                  <p className="text-3xl font-bold text-[#DAA520]">$400</p>
+                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">Paramedic NREMT Prep</h3>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-[#DAA520] to-[#B8860B] bg-clip-text text-transparent">$400</p>
                 </div>
                 <p className="text-gray-600 mb-6 text-center">
                   2-day intensive, scenario-based training with test strategy coaching.
@@ -128,18 +128,18 @@ export default function Home() {
                     Unlimited retakes
                   </li>
                 </ul>
-                <Link href="/courses/paramedic-prep" className="block w-full bg-[#8B0000] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#660000] transition-colors text-center">
+                <Link href="/courses/paramedic-prep" className="block w-full bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#660000] hover:to-[#8B0000] transition-all duration-200 text-center shadow-md hover:shadow-lg">
                   Learn More
                 </Link>
               </div>
             </div>
 
             {/* Tutoring */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="p-8">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2">1-on-1 Tutoring</h3>
-                  <p className="text-3xl font-bold text-[#DAA520]">$40-60/hr</p>
+                  <h3 className="text-2xl font-bold text-[#8B0000] mb-2 group-hover:text-[#A52A2A] transition-colors">1-on-1 Tutoring</h3>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-[#DAA520] to-[#B8860B] bg-clip-text text-transparent">$40-60/hr</p>
                 </div>
                 <p className="text-gray-600 mb-6 text-center">
                   Personalized support for EMT ($40/hr) or Paramedic ($60/hr) students.
@@ -164,7 +164,7 @@ export default function Home() {
                     Focus on your weak areas
                   </li>
                 </ul>
-                <Link href="/courses/tutoring" className="block w-full bg-[#8B0000] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#660000] transition-colors text-center">
+                <Link href="/courses/tutoring" className="block w-full bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#660000] hover:to-[#8B0000] transition-all duration-200 text-center shadow-md hover:shadow-lg">
                   Learn More
                 </Link>
               </div>
@@ -244,7 +244,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
               <div className="flex items-center mb-4">
                 <div className="flex text-[#DAA520]">
                   {[...Array(5)].map((_, i) => (
@@ -254,14 +254,14 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="text-gray-700 mb-4 italic text-lg leading-relaxed">
                 &ldquo;I passed my paramedic registry on the first try after this course. The scenario-based training was exactly what I needed.&rdquo;
               </p>
-              <div className="font-semibold text-[#8B0000]">Sarah M.</div>
+              <div className="font-semibold text-[#8B0000] group-hover:text-[#A52A2A] transition-colors">Sarah M.</div>
               <div className="text-sm text-gray-600">Paramedic Graduate</div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
               <div className="flex items-center mb-4">
                 <div className="flex text-[#DAA520]">
                   {[...Array(5)].map((_, i) => (
@@ -271,14 +271,14 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="text-gray-700 mb-4 italic text-lg leading-relaxed">
                 &ldquo;The instructors really care about your success. They worked with me until I passed — never gave up on me.&rdquo;
               </p>
-              <div className="font-semibold text-[#8B0000]">Mike R.</div>
+              <div className="font-semibold text-[#8B0000] group-hover:text-[#A52A2A] transition-colors">Mike R.</div>
               <div className="text-sm text-gray-600">EMT Graduate</div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
               <div className="flex items-center mb-4">
                 <div className="flex text-[#DAA520]">
                   {[...Array(5)].map((_, i) => (
@@ -288,10 +288,10 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="text-gray-700 mb-4 italic text-lg leading-relaxed">
                 &ldquo;Truly veteran-owned service. The real-world experience they bring to teaching made all the difference.&rdquo;
               </p>
-              <div className="font-semibold text-[#8B0000]">Jennifer L.</div>
+              <div className="font-semibold text-[#8B0000] group-hover:text-[#A52A2A] transition-colors">Jennifer L.</div>
               <div className="text-sm text-gray-600">EMT Graduate</div>
             </div>
           </div>
@@ -408,10 +408,10 @@ export default function Home() {
             Your path to EMS success starts here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Link href="#courses" className="bg-[#DAA520] text-[#8B0000] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#B8860B] transition-colors">
+            <Link href="#courses" className="bg-gradient-to-r from-[#DAA520] to-[#B8860B] text-[#8B0000] px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#B8860B] hover:to-[#DAA520] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
               Register Today
             </Link>
-            <Link href="#contact" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#8B0000] transition-colors">
+            <Link href="#contact" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#8B0000] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
               Contact Us
             </Link>
           </div>

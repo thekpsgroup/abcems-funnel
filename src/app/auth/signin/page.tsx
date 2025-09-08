@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function SignInPage() {
   const [email, setEmail] = useState("")
@@ -47,7 +48,7 @@ export default function SignInPage() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <img src="/logo.jpg" alt="ABCEMS Solutions" className="h-16 w-auto mx-auto mb-4" />
+          <Image src="/logo.jpg" alt="ABCEMS Solutions" width={64} height={64} className="h-16 w-auto mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-kps-navy mb-2">ABCEMS Solutions</h1>
           <p className="text-kps-gold">Pass the NREMT with Confidence</p>
         </div>

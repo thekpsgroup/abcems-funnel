@@ -2,6 +2,7 @@
 
 import type { PutBlobResult } from '@vercel/blob';
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 
 export default function AvatarUploadPage() {
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -67,9 +68,11 @@ export default function AvatarUploadPage() {
             </a>
             {blob.url && (
               <div className="mt-4">
-                <img 
+                <Image 
                   src={blob.url} 
                   alt="Uploaded avatar" 
+                  width={400}
+                  height={400}
                   className="max-w-full h-auto rounded-lg"
                 />
               </div>
