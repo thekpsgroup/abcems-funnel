@@ -9,12 +9,14 @@ export default function InstructorsPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <img
-                src="/logo.jpg"
-                alt="ABCEMS Logo"
-                className="h-10 w-auto rounded-lg shadow-md"
-              />
-              <div className="text-2xl font-bold text-[#8B0000]">ABCEMS</div>
+              <Link href="/" className="flex items-center space-x-3">
+                <img
+                  src="/logo.jpg"
+                  alt="ABCEMS Logo"
+                  className="h-10 w-auto rounded-lg shadow-md"
+                />
+                <span className="text-2xl font-bold text-[#8B0000]">ABCEMS</span>
+              </Link>
             </div>
             <div className="hidden md:flex space-x-8">
               <Link href="/" className="text-gray-600 hover:text-[#8B0000] transition-colors">Home</Link>
