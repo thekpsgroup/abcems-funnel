@@ -198,7 +198,7 @@ export default async function AdminDashboard() {
               <SparklesIcon className="h-5 w-5 text-[#8B0000]" />
               Quick Actions
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <Link
                 href="/admin/create-users"
                 className="flex items-center justify-center px-4 py-3 bg-[#8B0000] text-white rounded-lg hover:bg-[#A52A2A] transition-colors"
@@ -221,18 +221,25 @@ export default async function AdminDashboard() {
                 <span className="font-medium">Manage Courses</span>
               </Link>
               <Link
-                href="/admin/bulk-email"
+                href="/admin/email-templates"
                 className="flex items-center justify-center px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
                 <EnvelopeIcon className="h-5 w-5 mr-2" />
-                <span className="font-medium">Send Emails</span>
+                <span className="font-medium">Email Templates</span>
               </Link>
               <Link
-                href="/admin/reports"
+                href="/admin/automated-emails"
+                className="flex items-center justify-center px-4 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                <CogIcon className="h-5 w-5 mr-2" />
+                <span className="font-medium">Auto Emails</span>
+              </Link>
+              <Link
+                href="/admin/email-analytics"
                 className="flex items-center justify-center px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 <ChartBarIcon className="h-5 w-5 mr-2" />
-                <span className="font-medium">View Reports</span>
+                <span className="font-medium">Email Analytics</span>
               </Link>
               <Link
                 href="/admin/settings"
