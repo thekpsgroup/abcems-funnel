@@ -1,10 +1,49 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.user.upsert({ where: { email: "admin@abcemssolutions.com" }, update: {}, create: { email: "admin@abcemssolutions.com", name: "Admin User", role: "ADMIN" } });
-  const instructor = await prisma.user.upsert({ where: { email: "instructor@abcemssolutions.com" }, update: {}, create: { email: "instructor@abcemssolutions.com", name: "Lead Instructor", role: "INSTRUCTOR" } });
-  await Promise.all([1,2,3,4,5].map(i => prisma.user.upsert({ where: { email: `learner${i}@example.com` }, update: {}, create: { email: `learner${i}@example.com`, name: `Learner ${i}`, role: "LEARNER" } })));
+  // Create admin user with password
+  const adminPassword = await bcrypt.hash("admin123", 12);
+  await prisma.user.upsert({ 
+    where: { email: "admin@abcemssolutions.com" }, 
+    update: {}, 
+    create: { 
+      email: "admin@abcemssolutions.com", 
+      name: "Admin User", 
+      role: "ADMIN",
+      password: adminPassword
+    } 
+  });
+
+  // Create instructor with password
+  const instructorPassword = await bcrypt.hash("instructor123", 12);
+  const instructor = await prisma.user.upsert({ 
+    where: { email: "instructor@abcemssolutions.com" }, 
+    update: {}, 
+    create: { 
+      email: "instructor@abcemssolutions.com", 
+      name: "Lead Instructor", 
+      role: "INSTRUCTOR",
+      password: instructorPassword
+    } 
+  });
+
+  // Create sample learners with passwords
+  await Promise.all([1,2,3,4,5].map(async (i) => {
+    const password = await bcrypt.hash(`learner${i}123`, 12);
+    return prisma.user.upsert({ 
+      where: { email: `learner${i}@example.com` }, 
+      update: {}, 
+      create: { 
+        email: `learner${i}@example.com`, 
+        name: `Learner ${i}`, 
+        role: "LEARNER",
+        password: password
+      } 
+    });
+  }));
 
   // Create courses (using create instead of upsert since title is not unique)
   const emt = await prisma.course.create({ data: { title: "EMT Prep Course", description: "3-week EMT-Basic program, live Zoom or in-person. Includes study guide & homework packet. Free retakes until you pass.", priceCents: 20000 } });
