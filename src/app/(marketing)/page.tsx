@@ -8,7 +8,14 @@ export default function Home() {
       <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold text-[#8B0000]">ABCEMS</div>
+            <div className="flex items-center space-x-3">
+              <img
+                src="/logo.jpg"
+                alt="ABCEMS Logo"
+                className="h-10 w-auto rounded-lg shadow-md"
+              />
+              <div className="text-2xl font-bold text-[#8B0000]">ABCEMS</div>
+            </div>
             <div className="hidden md:flex space-x-8">
               <Link href="/about" className="text-gray-600 hover:text-[#8B0000] transition-colors">About</Link>
               <Link href="/courses" className="text-gray-600 hover:text-[#8B0000] transition-colors">Courses</Link>
@@ -28,31 +35,63 @@ export default function Home() {
       {/* Main Content - Grows to fill available space */}
       <main className="flex-1">
         {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-red-50/30">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              Master Your
-              <span className="block text-[#8B0000]">NREMT Exam</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Texas-based, veteran-owned EMS training led by experienced paramedics.
-              Proven methods to help you pass with confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/courses"
-                className="bg-[#8B0000] text-white px-8 py-4 rounded-lg hover:bg-[#A52A2A] transition-all duration-300 inline-flex items-center group"
-              >
-                Explore Courses
-                <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/contact"
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-[#8B0000] hover:text-[#8B0000] transition-colors"
-              >
-                Contact Us
-              </Link>
+      <section className="relative bg-gradient-to-br from-gray-50 to-red-50/30 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero/hero-large-awesome.jpg"
+            alt="EMS Training in Action"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-transparent"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Master Your
+                <span className="block text-[#8B0000]">NREMT Exam</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                Texas-based, veteran-owned EMS training led by experienced paramedics.
+                Proven methods to help you pass with confidence.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/courses"
+                  className="bg-[#8B0000] text-white px-8 py-4 rounded-lg hover:bg-[#A52A2A] transition-all duration-300 inline-flex items-center group shadow-lg"
+                >
+                  Explore Courses
+                  <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-[#8B0000] hover:text-[#8B0000] transition-colors shadow-lg"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white/50 backdrop-blur-sm">
+                <img
+                  src="/images/course/course-in-action (1).jpg"
+                  alt="EMS Training Session"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 bg-[#8B0000] text-white px-4 py-2 rounded-lg shadow-lg">
+                <div className="text-sm font-semibold">95% Pass Rate</div>
+              </div>
+              <div className="absolute -bottom-4 -left-4 bg-white text-gray-900 px-4 py-2 rounded-lg shadow-lg border">
+                <div className="text-sm font-semibold">Certified Instructors</div>
+              </div>
             </div>
           </div>
         </div>
@@ -127,40 +166,85 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">EMT-Basic Prep</h3>
-              <p className="text-2xl font-bold text-gray-900 mb-4">$200</p>
-              <p className="text-gray-600 mb-4">3-week intensive program with live instruction</p>
-              <Link
-                href="/courses/emt-prep"
-                className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
-              >
-                Learn More
-              </Link>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/images/course/course-in-action (2).jpg"
+                  alt="EMT-Basic Training"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    EMT-Basic
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#8B0000] mb-2">EMT-Basic Prep</h3>
+                <p className="text-2xl font-bold text-gray-900 mb-4">$200</p>
+                <p className="text-gray-600 mb-4">3-week intensive program with live instruction</p>
+                <Link
+                  href="/courses/emt-prep"
+                  className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Paramedic Prep</h3>
-              <p className="text-2xl font-bold text-gray-900 mb-4">$400</p>
-              <p className="text-gray-600 mb-4">2-day intensive scenario-based training</p>
-              <Link
-                href="/courses/paramedic-prep"
-                className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
-              >
-                Learn More
-              </Link>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/images/course/course-in-action (3).jpg"
+                  alt="Paramedic Training"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    Paramedic
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#8B0000] mb-2">Paramedic Prep</h3>
+                <p className="text-2xl font-bold text-gray-900 mb-4">$400</p>
+                <p className="text-gray-600 mb-4">2-day intensive scenario-based training</p>
+                <Link
+                  href="/courses/paramedic-prep"
+                  className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-[#8B0000] mb-2">1-on-1 Tutoring</h3>
-              <p className="text-2xl font-bold text-gray-900 mb-4">$40-60/hr</p>
-              <p className="text-gray-600 mb-4">Personalized support tailored to your needs</p>
-              <Link
-                href="/courses/tutoring"
-                className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
-              >
-                Learn More
-              </Link>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/images/course/course-in-action (4).jpg"
+                  alt="1-on-1 Tutoring Session"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-[#8B0000] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    1-on-1
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#8B0000] mb-2">1-on-1 Tutoring</h3>
+                <p className="text-2xl font-bold text-gray-900 mb-4">$40-60/hr</p>
+                <p className="text-gray-600 mb-4">Personalized support tailored to your needs</p>
+                <Link
+                  href="/courses/tutoring"
+                  className="block w-full bg-[#8B0000] text-white text-center py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -209,11 +293,15 @@ export default function Home() {
                 &ldquo;ABCEMS transformed my approach to NREMT preparation. The instructors are phenomenal and the structured approach made all the difference. I passed on my first attempt!&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  J
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-[#8B0000]/20 shadow-md">
+                  <img
+                    src="/images/instructors/captain-jake-hempstead.jpg"
+                    alt="Captain Jake Hempstead"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">Jessica M.</div>
+                  <div className="font-semibold text-gray-900">Captain Jake Hempstead</div>
                   <div className="text-sm text-gray-600">EMT-Basic, Austin TX</div>
                 </div>
               </div>
@@ -229,11 +317,15 @@ export default function Home() {
                 &ldquo;The one-on-one tutoring was incredible. They identified my weak areas and helped me master them completely. Worth every penny!&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  M
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-[#8B0000]/20 shadow-md">
+                  <img
+                    src="/images/instructors/driver-feo-jeff-carter.jpg"
+                    alt="Driver Feo Jeff Carter"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">Marcus R.</div>
+                  <div className="font-semibold text-gray-900">Driver Feo Jeff Carter</div>
                   <div className="text-sm text-gray-600">Paramedic, Dallas TX</div>
                 </div>
               </div>
@@ -249,11 +341,15 @@ export default function Home() {
                 &ldquo;I was struggling with the psychomotor portion, but ABCEMS made it crystal clear. Their hands-on approach is exactly what I needed.&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  S
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-[#8B0000]/20 shadow-md">
+                  <img
+                    src="/images/instructors/lieutenant-brian-collins.jpg"
+                    alt="Lieutenant Brian Collins"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">Sarah L.</div>
+                  <div className="font-semibold text-gray-900">Lieutenant Brian Collins</div>
                   <div className="text-sm text-gray-600">EMT-Basic, Houston TX</div>
                 </div>
               </div>
@@ -301,7 +397,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold text-[#8B0000] mb-4">ABCEMS</div>
+              <div className="flex items-center space-x-3 mb-4">
+                <img
+                  src="/logo.jpg"
+                  alt="ABCEMS Logo"
+                  className="h-12 w-auto rounded-lg shadow-md"
+                />
+                <div className="text-2xl font-bold text-[#8B0000]">ABCEMS</div>
+              </div>
               <p className="text-gray-400">
                 Texas-based EMS training led by experienced paramedics.
               </p>

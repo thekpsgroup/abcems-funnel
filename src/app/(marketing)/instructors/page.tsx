@@ -4,6 +4,34 @@ import Image from "next/image";
 export default function InstructorsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-red-50">
+      {/* Navigation */}
+      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-3">
+              <img
+                src="/logo.jpg"
+                alt="ABCEMS Logo"
+                className="h-10 w-auto rounded-lg shadow-md"
+              />
+              <div className="text-2xl font-bold text-[#8B0000]">ABCEMS</div>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <Link href="/" className="text-gray-600 hover:text-[#8B0000] transition-colors">Home</Link>
+              <Link href="/courses" className="text-gray-600 hover:text-[#8B0000] transition-colors">Courses</Link>
+              <Link href="/instructors" className="text-gray-600 hover:text-[#8B0000] transition-colors">Instructors</Link>
+              <Link href="/contact" className="text-gray-600 hover:text-[#8B0000] transition-colors">Contact</Link>
+            </div>
+            <Link
+              href="/auth/signin"
+              className="bg-[#8B0000] text-white px-6 py-2 rounded-lg hover:bg-[#A52A2A] transition-colors"
+            >
+              Sign In
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white">
         <div className="absolute inset-0 bg-black/20"></div>
@@ -269,7 +297,7 @@ export default function InstructorsPage() {
             <div className="bg-white p-6 rounded-2xl shadow-lg">
               <div className="aspect-video rounded-lg overflow-hidden mb-4">
                 <Image
-                  src="/images/course/course-in-action.jpg"
+                  src="/images/course/course-in-action (5).jpg"
                   alt="ABCEMS Course in Action"
                   width={600}
                   height={400}
@@ -285,7 +313,7 @@ export default function InstructorsPage() {
             <div className="bg-white p-6 rounded-2xl shadow-lg">
               <div className="aspect-video rounded-lg overflow-hidden mb-4">
                 <Image
-                  src="/images/course/students-learning.jpg"
+                  src="/images/course/course-in-action (6).jpg"
                   alt="Students Learning EMS Skills"
                   width={600}
                   height={400}

@@ -44,9 +44,19 @@ export default async function AdminDashboard() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="text-sm text-gray-600">Manage your EMS training platform</p>
+            <div className="flex items-center space-x-4">
+              <Link href="/" className="flex items-center space-x-3">
+                <img
+                  src="/logo.jpg"
+                  alt="ABCEMS Logo"
+                  className="h-10 w-auto rounded shadow-sm"
+                />
+                <span className="text-2xl font-bold text-[#8B0000]">ABCEMS</span>
+              </Link>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+                <p className="text-sm text-gray-600">Manage your EMS training platform</p>
+              </div>
             </div>
             <div className="text-right">
               <p className="text-sm font-medium text-gray-900">{(session as { user?: { name?: string } }).user?.name || 'Admin'}</p>
