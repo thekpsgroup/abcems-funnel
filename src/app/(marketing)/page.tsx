@@ -3,7 +3,7 @@ import { ArrowRightIcon, CheckCircleIcon, StarIcon, UsersIcon } from "@heroicons
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -25,7 +25,9 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Main Content - Grows to fill available space */}
+      <main className="flex-1">
+        {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-red-50/30">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center max-w-4xl mx-auto">
@@ -188,7 +190,113 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Simple Footer */}
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
+            <p className="text-xl text-gray-600">Real stories from real EMS professionals</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">
+                &ldquo;ABCEMS transformed my approach to NREMT preparation. The instructors are phenomenal and the structured approach made all the difference. I passed on my first attempt!&rdquo;
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  J
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Jessica M.</div>
+                  <div className="text-sm text-gray-600">EMT-Basic, Austin TX</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">
+                &ldquo;The one-on-one tutoring was incredible. They identified my weak areas and helped me master them completely. Worth every penny!&rdquo;
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  M
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Marcus R.</div>
+                  <div className="text-sm text-gray-600">Paramedic, Dallas TX</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">
+                &ldquo;I was struggling with the psychomotor portion, but ABCEMS made it crystal clear. Their hands-on approach is exactly what I needed.&rdquo;
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#8B0000] rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  S
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Sarah L.</div>
+                  <div className="text-sm text-gray-600">EMT-Basic, Houston TX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">Everything you need to know about our programs</p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">How long are the courses?</h3>
+              <p className="text-gray-600">Our EMT-Basic Prep is a 3-week intensive program. Paramedic Prep is a 2-day intensive scenario-based training. 1-on-1 tutoring is flexible and customized to your schedule.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Do you offer payment plans?</h3>
+              <p className="text-gray-600">Yes, we offer flexible payment plans for all our programs. Contact us to discuss options that work best for your situation.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What if I don&apos;t pass?</h3>
+              <p className="text-gray-600">We offer a 30-day money-back guarantee for our main programs. If you don&apos;t pass, we&apos;ll work with you to identify areas for improvement and provide additional support at no extra cost.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Are the instructors certified?</h3>
+              <p className="text-gray-600">All our instructors are certified paramedics with extensive real-world experience. Many have been EMS educators for over 10 years and are recognized leaders in their field.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </main>
+
+      {/* Footer - Always at bottom */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
