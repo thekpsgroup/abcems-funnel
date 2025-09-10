@@ -124,9 +124,11 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold">A</span>
-                </div>
+                <img
+                  src="/logo.jpg"
+                  alt="ABCEMS Logo"
+                  className="h-8 w-auto rounded-lg shadow-md"
+                />
                 <div>
                   <div className="text-lg font-bold text-[#DAA520]">ABCEMS Solutions</div>
                   <div className="text-xs text-gray-400">LLC</div>
@@ -150,6 +152,17 @@ export default function Footer() {
               </p>
               <p className="text-xs text-gray-600 mt-1">
                 Train Smarter, Not Harder
+              </p>
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="border-t border-gray-800 pt-6 mt-8">
+            <div className="text-center">
+              <p className="text-xs text-gray-500 leading-relaxed">
+                <span className="text-[#DAA520]">*</span> As long as certain conditions are met, all homework must be completed,
+                and you must be fully engaged in the program in order to qualify for the unlimited retakes program.
+                Unlimited retakes are available within 1 year of course completion.
               </p>
             </div>
           </div>

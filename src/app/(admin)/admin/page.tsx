@@ -11,7 +11,8 @@ import {
   UserPlusIcon,
   EnvelopeIcon,
   UsersIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  PaperAirplaneIcon
 } from "@heroicons/react/24/outline"
 
 export default async function AdminDashboard() {
@@ -40,32 +41,6 @@ export default async function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-3">
-                <img
-                  src="/logo.jpg"
-                  alt="ABCEMS Logo"
-                  className="h-10 w-auto rounded shadow-sm"
-                />
-                <span className="text-2xl font-bold text-[#8B0000]">ABCEMS</span>
-              </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-                <p className="text-sm text-gray-600">Manage your EMS training platform</p>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm font-medium text-gray-900">{(session as { user?: { name?: string } }).user?.name || 'Admin'}</p>
-              <p className="text-xs text-gray-500">Administrator</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Quick Stats */}
@@ -112,7 +87,7 @@ export default async function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Link
             href="/admin/create-users"
             className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow group"
@@ -159,6 +134,18 @@ export default async function AdminDashboard() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Campaigns</h3>
             <p className="text-gray-600 text-sm">Send bulk emails and manage communications</p>
+          </Link>
+
+          <Link
+            href="/admin/bulk-messaging"
+            className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow group"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <PaperAirplaneIcon className="h-8 w-8 text-orange-600" />
+              <ArrowRightIcon className="h-5 w-5 text-gray-400 group-hover:text-orange-600 transition-colors" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Bulk Messaging</h3>
+            <p className="text-gray-600 text-sm">Send announcements and messages to all users</p>
           </Link>
 
           <Link

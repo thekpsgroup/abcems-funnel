@@ -3,12 +3,9 @@ import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
 import { AttendanceManager } from "@/components/AttendanceManager"
-import Image from "next/image"
-import { 
-  UserGroupIcon, 
-  AcademicCapIcon, 
-  ClipboardDocumentCheckIcon,
-  BellIcon
+import {
+  AcademicCapIcon,
+  ClipboardDocumentCheckIcon
 } from "@heroicons/react/24/outline"
 
 export default async function InstructorDashboard() {
@@ -38,44 +35,6 @@ export default async function InstructorDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Enhanced Header */}
-      <header className="bg-gradient-to-r from-[#8B0000] to-[#A52A2A] text-white shadow-xl">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <Image 
-                  src="/logo.jpg" 
-                  alt="ABCEMS Solutions" 
-                  width={48} 
-                  height={48} 
-                  className="h-12 w-12 rounded-lg shadow-lg" 
-                />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#DAA520] rounded-full border-2 border-white"></div>
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold flex items-center gap-2">
-                  <UserGroupIcon className="h-8 w-8" />
-                  Instructor Dashboard
-                </h1>
-                <p className="text-[#DAA520] font-medium">Manage Your Classes</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-right">
-                <p className="text-sm text-gray-200">Welcome back,</p>
-                <p className="font-semibold">
-                  {(session as { user: { name?: string; email: string } }).user.name || (session as { user: { name?: string; email: string } }).user.email}
-                </p>
-              </div>
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <BellIcon className="h-6 w-6" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8">

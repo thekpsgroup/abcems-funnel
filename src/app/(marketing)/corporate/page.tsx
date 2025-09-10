@@ -193,7 +193,7 @@ export default function CorporatePage() {
               </div>
               <h3 className="text-2xl font-bold text-[#8B0000] mb-4">EMT-Basic Prep</h3>
               <p className="text-gray-600 mb-6">
-                3-week comprehensive EMT prep programs designed for corporate emergency response teams. 
+                1-day comprehensive EMT prep programs designed for corporate emergency response teams. 
                 Includes study materials and flexible scheduling.
               </p>
               <ul className="text-left text-gray-600 space-y-2">

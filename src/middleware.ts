@@ -1,22 +1,61 @@
+import { withAuth } from "next-auth/middleware"
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-const PROTECT = [/^\/portal(\/|$)/, /^\/api\/upload\//, /^\/api\/reports\//];
+export default withAuth(
+  function middleware(req) {
+    const token = req.nextauth.token
+    const isAuth = !!token
+    const isAuthPage = req.nextUrl.pathname.startsWith('/auth')
+    const isApiAuth = req.nextUrl.pathname.startsWith('/api/auth')
 
-export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
-  const needsAuth = PROTECT.some(rx => rx.test(pathname));
-  if (!needsAuth) return NextResponse.next();
+    // Allow access to auth pages
+    if (isAuthPage || isApiAuth) {
+      return NextResponse.next()
+    }
 
-  const expected = process.env.BASIC_AUTH; // "user:pass"
-  if (!expected) return NextResponse.next();
+    // Check if user needs to be authenticated
+    if (!isAuth) {
+      let from = req.nextUrl.pathname;
+      if (req.nextUrl.search) {
+        from += req.nextUrl.search;
+      }
 
-  const header = req.headers.get("authorization") || "";
-  const valid = "Basic " + Buffer.from(expected).toString("base64");
-  if (header !== valid) {
-    return new NextResponse("Auth required", { status: 401, headers: { "WWW-Authenticate": "Basic realm=ABCEMS" } });
+      return NextResponse.redirect(
+        new URL(`/auth/signin?from=${encodeURIComponent(from)}`, req.url)
+      );
+    }
+
+    return NextResponse.next()
+  },
+  {
+    callbacks: {
+      authorized: ({ token, req }) => {
+        const { pathname } = req.nextUrl
+
+        // Allow access to auth pages
+        if (pathname.startsWith('/auth') || pathname.startsWith('/api/auth')) {
+          return true
+        }
+
+        // Require authentication for portal routes
+        if (pathname.startsWith('/portal') || pathname.startsWith('/admin') ||
+            pathname.startsWith('/api/upload') || pathname.startsWith('/api/reports')) {
+          return !!token
+        }
+
+        return true
+      },
+    },
   }
-  return NextResponse.next();
-}
+)
 
-export const config = { matcher: ["/portal/:path*", "/api/upload/:path*", "/api/reports/:path*"] };
+export const config = {
+  matcher: [
+    '/portal/:path*',
+    '/admin/:path*',
+    '/api/upload/:path*',
+    '/api/reports/:path*',
+    '/dashboard/:path*',
+    '/profile/:path*'
+  ]
+};

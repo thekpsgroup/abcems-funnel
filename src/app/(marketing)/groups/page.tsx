@@ -199,7 +199,7 @@ export default function GroupsPage() {
               </div>
               <h3 className="text-2xl font-bold text-[#8B0000] mb-4">EMT-Basic Group Courses</h3>
               <p className="text-gray-600 mb-6">
-                3-week comprehensive EMT prep programs designed for fire departments and EMS agencies. 
+                1-day comprehensive EMT prep programs designed for fire departments and EMS agencies. 
                 Includes study materials, homework packets, and group support.
               </p>
               <div className="bg-[#DAA520] text-[#8B0000] px-4 py-2 rounded-lg font-semibold mb-4">

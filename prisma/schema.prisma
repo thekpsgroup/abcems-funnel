@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -8,16 +8,18 @@ generator client {
 }
 
 model User {
-  id           String        @id @default(cuid())
-  email        String        @unique
+  id           String             @id @default(cuid())
+  email        String             @unique
   name         String?
-  password     String?       // Hashed password for credentials auth
-  role         String        @default("LEARNER") // ADMIN | INSTRUCTOR | LEARNER
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  password     String?            // Hashed password for credentials auth
+  role         String             @default("LEARNER") // ADMIN | INSTRUCTOR | LEARNER
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
   enrollments  Enrollment[]
   certificates Certificate[]
   payments     Payment[]
+  moduleProgress ModuleProgress[]
+  lessonProgress LessonProgress[]
 }
 
 model Course {
@@ -33,6 +35,7 @@ model Course {
   certificates Certificate[]
   payments     Payment[]
   files        File[]
+  modules      Module[]
 }
 
 model Session {
@@ -88,10 +91,81 @@ model Payment {
   course          Course?  @relation(fields: [courseId], references: [id])
 }
 
+model Module {
+  id            String         @id @default(cuid())
+  courseId      String
+  title         String
+  description   String?
+  order         Int
+  estimatedTime Int            // in minutes
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  course        Course         @relation(fields: [courseId], references: [id])
+  lessons       Lesson[]
+  progress      ModuleProgress[]
+
+  @@unique([courseId, order])
+}
+
+model Lesson {
+  id            String         @id @default(cuid())
+  moduleId      String
+  title         String
+  content       String?        // HTML content or description
+  pdfKey        String?        // Vercel Blob key for PDF
+  pdfUrl        String?        // Public URL for PDF
+  pdfDownloadUrl String?       // Download URL for PDF
+  order         Int
+  estimatedTime Int            // in minutes
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  module        Module         @relation(fields: [moduleId], references: [id])
+  progress      LessonProgress[]
+
+  @@unique([moduleId, order])
+}
+
+model ModuleProgress {
+  id            String         @id @default(cuid())
+  userId        String
+  moduleId      String
+  startedAt     DateTime       @default(now())
+  completedAt   DateTime?
+  timeSpent     Int            @default(0) // in seconds
+  isCompleted   Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  user          User           @relation(fields: [userId], references: [id])
+  module        Module         @relation(fields: [moduleId], references: [id])
+
+  @@unique([userId, moduleId])
+}
+
+model LessonProgress {
+  id            String         @id @default(cuid())
+  userId        String
+  lessonId      String
+  startedAt     DateTime       @default(now())
+  completedAt   DateTime?
+  timeSpent     Int            @default(0) // in seconds
+  isCompleted   Boolean        @default(false)
+  notes         String?        // Student notes/annotations
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  user          User           @relation(fields: [userId], references: [id])
+  lesson        Lesson         @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
 model File {
   id          String   @id @default(cuid())
-  type        String // HOMEWORK | ROSTER | DOC
+  type        String // HOMEWORK | ROSTER | DOC | MODULE | LESSON
   courseId    String?
+  moduleId    String?
+  lessonId    String?
   fileName    String
   storageKey  String // blob pathname, e.g., homework/COURSE/...
   url         String // blob.url (public)
