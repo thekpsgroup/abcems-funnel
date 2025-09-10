@@ -136,10 +136,10 @@ export async function POST(req: NextRequest) {
     let totalLessons = 0
     let completedLessons = 0
 
-    for (const module of courseModules) {
-      totalLessons += module.lessons.length
+    for (const courseModule of courseModules) {
+      totalLessons += courseModule.lessons.length
 
-      for (const lesson of module.lessons) {
+      for (const lesson of courseModule.lessons) {
         const progress = await prisma.lessonProgress.findUnique({
           where: {
             userId_lessonId: {

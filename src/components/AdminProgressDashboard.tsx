@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { ClockIcon, UserGroupIcon, BookOpenIcon, TrendingUpIcon, EyeIcon } from '@heroicons/react/24/outline'
+import { ClockIcon, UserGroupIcon, BookOpenIcon, EyeIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 
 interface StudentProgress {
   id: string
@@ -27,6 +27,10 @@ export function AdminProgressDashboard({ courseId }: AdminProgressDashboardProps
   const [students, setStudents] = useState<StudentProgress[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all')
+
+  const handleFilterChange = (newFilter: 'all' | 'active' | 'completed') => {
+    setFilter(newFilter)
+  }
   const [selectedStudent, setSelectedStudent] = useState<StudentProgress | null>(null)
 
   useEffect(() => {
@@ -187,7 +191,7 @@ export function AdminProgressDashboard({ courseId }: AdminProgressDashboardProps
 
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <TrendingUpIcon className="w-8 h-8 text-orange-600 mr-3" />
+            <ChartBarIcon className="w-8 h-8 text-orange-600 mr-3" />
             <div>
               <p className="text-2xl font-bold text-gray-900">
                 {students.filter(s => s.progressPercentage === 100).length}
@@ -210,7 +214,7 @@ export function AdminProgressDashboard({ courseId }: AdminProgressDashboardProps
             ].map(({ key, label, count }) => (
               <button
                 key={key}
-                onClick={() => setFilter(key as any)}
+                onClick={() => handleFilterChange(key as 'all' | 'active' | 'completed')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   filter === key
                     ? 'bg-blue-600 text-white'
@@ -321,7 +325,7 @@ export function AdminProgressDashboard({ courseId }: AdminProgressDashboardProps
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  {selectedStudent.name}'s Progress
+                  {selectedStudent.name}&apos;s Progress
                 </h3>
                 <button
                   onClick={() => setSelectedStudent(null)}

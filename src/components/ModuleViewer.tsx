@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ChevronDownIcon, ChevronRightIcon, ClockIcon, CheckCircleIcon, PlayIcon, BookOpenIcon } from '@heroicons/react/24/outline'
 import { PdfViewer } from './PdfViewer'
 
@@ -44,11 +44,7 @@ export function ModuleViewer({ courseId, enrollmentId }: ModuleViewerProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    fetchModules()
-  }, [courseId])
-
-  const fetchModules = async () => {
+  const fetchModules = useCallback(async () => {
     try {
       const response = await fetch(`/api/modules?courseId=${courseId}`)
       if (!response.ok) throw new Error('Failed to fetch modules')
@@ -69,7 +65,11 @@ export function ModuleViewer({ courseId, enrollmentId }: ModuleViewerProps) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [courseId])
+
+  useEffect(() => {
+    fetchModules()
+  }, [fetchModules])
 
   const toggleModule = (moduleId: string) => {
     const newExpanded = new Set(expandedModules)

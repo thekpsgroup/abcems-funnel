@@ -44,6 +44,15 @@ interface ExtendedUser {
   role: string
 }
 
+interface ModuleWithProgress {
+  id: string
+  title: string
+  progress?: {
+    isCompleted: boolean
+    timeSpent: number
+  }
+}
+
 export default function Dashboard() {
   const { data: session, status } = useSession()
   const [courses, setCourses] = useState<Course[]>([])
@@ -86,10 +95,10 @@ export default function Dashboard() {
         let courseProgress = 0
 
         // Calculate progress across all modules
-        for (const module of modules) {
-          totalLessons += module.lessons?.length || 0
+        for (const courseModule of modules) {
+          totalLessons += courseModule.lessons?.length || 0
 
-          for (const lesson of module.lessons || []) {
+          for (const lesson of courseModule.lessons || []) {
             const lessonProgress = lesson.progress
             if (lessonProgress?.isCompleted) {
               completedLessons++
@@ -101,11 +110,11 @@ export default function Dashboard() {
 
         // Calculate time spent
         let timeSpent = 0
-        for (const module of modules) {
-          if (module.progress?.timeSpent) {
-            timeSpent += module.progress.timeSpent
+        for (const courseModule of modules) {
+          if (courseModule.progress?.timeSpent) {
+            timeSpent += courseModule.progress.timeSpent
           }
-          for (const lesson of module.lessons || []) {
+          for (const lesson of courseModule.lessons || []) {
             if (lesson.progress?.timeSpent) {
               timeSpent += lesson.progress.timeSpent
             }
@@ -124,7 +133,7 @@ export default function Dashboard() {
           category: course.title.includes('EMT') ? 'EMT' : 'Paramedic',
           difficulty: course.title.includes('EMT') ? 'beginner' : 'advanced',
           lastAccessed: enrollment.updatedAt || new Date().toISOString(),
-          nextLesson: modules.find(m => m.progress && !m.progress.isCompleted)?.title || "Continue Learning",
+          nextLesson: (modules as ModuleWithProgress[]).find((m: ModuleWithProgress) => m.progress && !m.progress.isCompleted)?.title || "Continue Learning",
           certificateEarned: enrollment.status === 'completed',
           rating: 4.8
         })
